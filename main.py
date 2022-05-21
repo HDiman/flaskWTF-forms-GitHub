@@ -1,9 +1,13 @@
+import markupsafe
 from flask import Flask, render_template
-from jinja2.utils import markupsafe
-from markupsafe import Markup
+from jinja2.environment import Environment
+from jinja2.loaders import FileSystemLoader
+# from markupsafe import Markup
+
 
 markupsafe.Markup()
-Markup('')
+markupsafe.Markup('')
+
 
 app = Flask(__name__)
 
