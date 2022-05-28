@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
+from wtforms import StringField, PasswordField, SubmitField
 # import markupsafe
 #
 # markupsafe.Markup()
@@ -8,8 +8,9 @@ from wtforms import StringField, PasswordField
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Email')
-    password = PasswordField('Password')
+    email = StringField(label='Email')
+    password = PasswordField(label='Password')
+    submit = SubmitField(label='Log In')
 
 
 app = Flask(__name__)
