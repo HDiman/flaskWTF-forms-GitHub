@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, InputRequired, Email, Length
 # import markupsafe
 #
 # markupsafe.Markup()
@@ -8,10 +9,14 @@ from wtforms import StringField, PasswordField, SubmitField
 
 
 class LoginForm(FlaskForm):
-    email = StringField(label='Email')
-    password = PasswordField(label='Password')
+    email = StringField(label='Email', validators=[InputRequired(), Email('Invalid email address')])
+    password = PasswordField(label='Password', validators=[InputRequired(), Length(min=8)])
     submit = SubmitField(label='Log In')
 
+    # def validate_name(form, field):
+    #     if len(field.data) > 50:
+    #         raise ValidationError('Name must be less than 50 characters')
+#     'Field must be at list 8 characters long'
 
 app = Flask(__name__)
 app.secret_key = "any-string-you-want-just-keep-it-secret"
@@ -22,9 +27,10 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
     login_form = LoginForm()
+    login_form.validate_on_submit()
     return render_template('login.html', form=login_form)
 
 
