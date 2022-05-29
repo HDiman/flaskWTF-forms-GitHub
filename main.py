@@ -26,6 +26,7 @@ def home():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     login_form = LoginForm()
+    # login_form.email.data (for getting certain email)
     if request.method == "GET":
         return render_template('login.html', form=login_form)
     elif request.method == "POST" and login_form.validate_on_submit():
