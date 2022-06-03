@@ -1,28 +1,9 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--  <head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>{% block title %}{% endblock %}</title>-->
-<!--    &lt;!&ndash; Styling &ndash;&gt;-->
-<!--    <style>-->
-<!--      {% block styling %}-->
-<!--      body{-->
-<!--          background: purple;-->
-<!--      }-->
-<!--      {% endblock %}-->
-<!--</style>-->
-<!--  </head>-->
-<!--  <body>-->
-<!--    {% block content %}{% endblock %}-->
-<!--  </body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{% block title %}{% endblock %}</title>
-  <style>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
     {% block styling %}
     body{
         background: purple;
@@ -31,6 +12,6 @@
     </style>
 </head>
 <body>
-{% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 </body>
 </html>
