@@ -1,5 +1,5 @@
-{% extends 'bootstrap4/base.html' %}
-{% import "bootstrap4/wtf.html" as wtf %}
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}
 Login
@@ -9,5 +9,7 @@ Login
 <div class="container">
 		<h1>Login</h1>
         {{ wtf.quick_form(form) }}
+        {{ wtf.form_field(form.field1) }}
+        {{ wtf.form_field(form.field2) }}
     </div>
 {% endblock %}
